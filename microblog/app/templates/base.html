@@ -5,7 +5,27 @@
       {% else %}
       <title>Welcome to Microblog</title>
       {% endif %}
+      <style>
+        hr.style-one {
+            height: 30px;
+            border-style: solid;
+            border-color: black;
+            border-width: 1px 0 0 0;
+            border-radius: 20px;
+            }
+        hr.style-one:before {
+            display: block;
+            content: "";
+            height: 30px;
+            margin-top: -31px;
+            border-style: solid;
+            border-color: black;
+            border-width: 0 0 1px 0;
+            border-radius: 20px;
+            }
+      </style>
     </head>
+
     <body>
         <div>
             Microblog:
@@ -13,6 +33,7 @@
             {% if current_user.is_anonymous %}
                 <a href="{{ url_for('login') }}">Login</a>
             {% else %}
+                <a href="{{ url_for('user', username=current_user.username) }}">Profile</a>
                 <a href="{{ url_for('logout') }}">Logout</a>
             {% endif %}
         </div>
