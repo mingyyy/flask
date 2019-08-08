@@ -74,7 +74,7 @@ def before_request():
         db.session.commit()
 
 
-app.route('/edit_profile', methods=['GET', 'POST'])
+@app.route('/edit_profile', methods=['GET', 'POST'])
 @login_required
 def edit_profile():
     form = EditProfileForm()
